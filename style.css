@@ -75,3 +75,10 @@ header h1{
   text-decoration: none;
   color: white;
 }
+#catcher{
+  height: 55vh;
+  width: 45vw;
+  color: #ff4040;
+  overflow-y: scroll;
+  margin-top: 3vh;
+}

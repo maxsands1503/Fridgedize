@@ -3,6 +3,24 @@ var searchItem2 = document.getElementById("searchBox2");
 var searchItem3 = document.getElementById("searchBox3");
 var button = document.getElementById('buttoni');
 
+$(document).on('click', '.foodStuff', function (event) {
+  var foodId = event.target.id;
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + foodId + "/information?includeNutrition=true",
+    "method": "GET",
+    "headers": {
+      "x-mashape-key": "BoF3698DNWmshq8rQDe66ihjafNxp1KIlCKjsnaQPlKrkeGbjD",
+      "cache-control": "no-cache",
+      "postman-token": "8bfdc072-2d9a-fae9-fecb-294451dc51a3"
+    }
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+})
+
 button.addEventListener("click", function(){
   event.preventDefault();
   console.log(searchItem1.value);
@@ -23,25 +41,10 @@ var foodFind = {
 $.ajax(foodFind).done(function (response) {
   for (var i = 0; i < response.length; i++) {
     var foodTitles = document.createElement("div");
+    foodTitles.className = 'foodStuff';
+    foodTitles.id = response[i].id;
     foodTitles.innerHTML = response[i].title;
-    foodTitles.addClass("clickable")
-    $("body").append(foodTitles);
+    $("#catcher").append(foodTitles);
   }
 });
 })
-
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/146514/information?includeNutrition=true",
-  "method": "GET",
-  "headers": {
-    "x-mashape-key": "BoF3698DNWmshq8rQDe66ihjafNxp1KIlCKjsnaQPlKrkeGbjD",
-    "cache-control": "no-cache",
-    "postman-token": "8bfdc072-2d9a-fae9-fecb-294451dc51a3"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
