@@ -49,3 +49,29 @@ header h1{
 .clickable{
   color: blue;
 }
+#goToP2Con{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#goToP2{
+  border: none;
+  border-radius: 35%;
+  font-family: 'Lobster', cursive;
+  font-size: 1.4em;
+  padding: 10px;
+  opacity: .8;
+  max-width: 50%;
+  max-height:100%;
+  margin-top: 20vh;
+}
+#goToP2--top {
+  align-self: flex-start;
+}
+#goToP2--bottom {
+  align-self: flex-end;
+}
+#goToP2 a{
+  text-decoration: none;
+  color: white;
+}
