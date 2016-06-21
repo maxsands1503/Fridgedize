@@ -1,13 +1,17 @@
-var searchItem = document.getElementById("searchBox");
+var searchItem1 = document.getElementById("searchBox1");
+var searchItem2 = document.getElementById("searchBox2");
+var searchItem3 = document.getElementById("searchBox3");
 var button = document.getElementById('buttoni');
 
 button.addEventListener("click", function(){
   event.preventDefault();
-  console.log(searchItem.value);
+  console.log(searchItem1.value);
+  console.log(searchItem2.value);
+  console.log(searchItem3.value);
 var foodFind = {
   "async": true,
   "crossDomain": true,
-  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=butter%2C+flour%2C+" + searchItem.value + "&limitLicense=false&number=5&ranking=1",
+  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchItem1.value + "%2C+" + searchItem2.value + "%2C+" + searchItem3.value + "&limitLicense=false&number=100&ranking=1",
   "method": "GET",
   "headers": {
     "x-mashape-key": "BoF3698DNWmshq8rQDe66ihjafNxp1KIlCKjsnaQPlKrkeGbjD",
@@ -17,14 +21,19 @@ var foodFind = {
 }
 
 $.ajax(foodFind).done(function (response) {
-  console.log(response);
+  for (var i = 0; i < response.length; i++) {
+    var foodTitles = document.createElement("div");
+    foodTitles.innerHTML = response[i].title;
+    foodTitles.addClass("clickable")
+    $("body").append(foodTitles);
+  }
 });
 })
 
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/534573/information",
+  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/146514/information?includeNutrition=true",
   "method": "GET",
   "headers": {
     "x-mashape-key": "BoF3698DNWmshq8rQDe66ihjafNxp1KIlCKjsnaQPlKrkeGbjD",

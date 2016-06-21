@@ -2,6 +2,10 @@
   margin:0;
   padding:0;
 }
+body{
+  font-family: 'Lobster', cursive;
+
+}
 #banner{
   width: 100vw;
   height: 90vh;
@@ -19,13 +23,29 @@ header h1{
   color: white;
 }
 #bannerText{
-  position: absolute;;
-  z-index: 1;
+  /*position: absolute;;
+  z-index: 1;*/
   width: 100vw;
   color: #ff4040;
   font-size: 1.6em;
+  font-family: 'Lobster', cursive;
 }
 #bannerText h2{
   text-align: center;
   margin-top: 40vh;
+}
+#food1{
+  float: left;
+  width: 40vw;
+  margin-left: 1vw;
+}
+.centerMe{
+  text-align: center;
+  color: #ff4040;
+}
+#title1{
+  padding: 2vh;
+}
+.clickable{
+  color: blue;
 }
