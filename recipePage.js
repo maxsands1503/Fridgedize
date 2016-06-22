@@ -18,10 +18,12 @@ $(document).on('click', '.foodStuff', function (event) {
   }
   $.ajax(settings).done(function (response) {
     console.log(response);
+    
   });
 })
 
 button.addEventListener("click", function(){
+  $("#catcher").innerHTML = "";
   event.preventDefault();
   console.log(searchItem1.value);
   console.log(searchItem2.value);
@@ -29,7 +31,7 @@ button.addEventListener("click", function(){
 var foodFind = {
   "async": true,
   "crossDomain": true,
-  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchItem1.value + "%2C+" + searchItem2.value + "%2C+" + searchItem3.value + "&limitLicense=false&number=100&ranking=1",
+  "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchItem1.value + "%2C+" + searchItem2.value + "%2C+" + searchItem3.value + "&limitLicense=false&number=500&ranking=1",
   "method": "GET",
   "headers": {
     "x-mashape-key": "BoF3698DNWmshq8rQDe66ihjafNxp1KIlCKjsnaQPlKrkeGbjD",
