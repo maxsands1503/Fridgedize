@@ -17,13 +17,28 @@ $(document).on('click', '.foodStuff', function (event) {
     }
   }
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    
+
+    console.log(response.title);
+    console.log(response.image);
+    console.log(response.nutrition.nutrients[0]);
+    console.log(response.sourceUrl);
+    for (var i = 0; i < response.nutrition.nutrients.length; i++) {
+      var rowYoBoat = document.createElement("tr")
+      var tableHead = document.createElement("th");
+      var countOf = document.createElement("td");
+      var percentOf = document.createElement("td");
+      tableHead.innerHTML =  response.nutrition.nutrients[i].title;
+      countOf.innerHTML = response.nutrition.nutrients[i].amount;
+      percentOf.innerHTML = response.nutrition.nutrients[i].percentOfDailyNeeds;
+      $("#nutrientTable").append(rowYoBoat);
+      $("#nutrientTable").append(tableHead);
+      $("#nutrientTable").append(countOf);
+      $("#nutrientTable").append(percentOf);
+    }
   });
 })
 
 button.addEventListener("click", function(){
-  $("#catcher").innerHTML = "";
   event.preventDefault();
   console.log(searchItem1.value);
   console.log(searchItem2.value);

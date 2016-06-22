@@ -87,8 +87,25 @@ header h1{
 #ingredients{
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  align-items: center;
+
 }
 #ingredients input{
   background-color: rgba(211, 211, 211, 0.9);
   height: 8vh;
+  font-size: 1.4em;
+  width: 65vw;
+  border: none;
+}
+#buttoni{
+  height: 5vh;
+  width: 64vw;
+  background-color: rgba(122, 175, 105, 0.9);
+  font-size: 1.4em;
+  border: none;
+  margin-top: 1vh;
+}
+table, th, td{
+  border: 3px solid black;
 }
