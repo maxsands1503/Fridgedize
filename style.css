@@ -106,6 +106,26 @@ header h1{
   border: none;
   margin-top: 1vh;
 }
+#containment{
+  display: inline-flex;
+}
+#captain{
+  height: 75vh;
+  width: 50vw;
+  color: black;
+  overflow-y: scroll;
+  margin: 3vh 2vh 3vh 2vh;
+  font-size: 1.3em;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+#nutInfo{
+  overflow-y: scroll;
+}
+#prettyPic img{
+  max-width: 48vw;
+  max-height: auto;
+  margin-left: 1vw;
+}
 table, th, td{
   border: 3px solid black;
 }
