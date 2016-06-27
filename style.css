@@ -7,6 +7,7 @@ body{
 }
 #page2{
   background-image: url(wood.jpeg);
+font-family: 'Comfortaa', cursive;
 }
 #banner{
   width: 100vw;
@@ -122,10 +123,45 @@ header h1{
   overflow-y: scroll;
 }
 #prettyPic img{
-  max-width: 48vw;
-  max-height: auto;
+  width: 48vw;
+  height: auto;
   margin-left: 1vw;
 }
 table, th, td{
   border: 3px solid black;
+}
+#recipeButt2{
+  height: 5vh;
+  width: 80%;
+  background-color: rgba(122, 175, 105, 0.9);
+  font-size: 1.4em;
+  border: none;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 10%;
+}
+#recipeButt2 a{
+  text-decoration: none;
+  color: black;
+}
+.foodStuff{
+  padding: 4%;
+  font-size: 1.2em;
+}
+#cont{
+  display: inline-flex;
+  flex-direction: row;
+}
+#text{
+  display: inline-flex;
+  flex-direction: row;
+  width: 40vw;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.2em;
+}
+#img1{
+  display: inline-flex;
+  flex-direction: row;
+  height: 35vh;
+  margin-right: 3%
 }

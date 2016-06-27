@@ -7,7 +7,8 @@ $(document).on('click', '.foodStuff', function (event) {
   $("#recipeBox").empty();
   $("#prettyPic").empty();
   $("#nutInfo").empty();
-  $("#recipeButt2").empty();
+  $("#recipeButt").empty();
+  $("#listamania").empty();
   var foodId = event.target.id;
   var settings = {
     "async": true,
@@ -26,24 +27,24 @@ $(document).on('click', '.foodStuff', function (event) {
     $("#recipeBox").append(title);
     console.log(response.image);
     console.log(response.sourceUrl);
-  });
-  $.ajax(settings).done(function (response) {
+    $("#prettyPic").append("<img src ='" + response.image + "'>");
+    var list = document.createElement("ul");
+    list.id = "listy";
+    $("#listamania").append("<ul>" + "<h3>ingredients<h3>");
+    console.log(response);
+    for(var i = 0; i < response.extendedIngredients.length; i++){
+      $("#listamania").append("<li>" + response.extendedIngredients[i].originalString + "</li>")
+    }
+    var button = document.createElement("button");
+    button.id = "recipeButt2";
+    $("#recipeButt").append(button);
+    $("#recipeButt2").append("<a href='" + response.sourceUrl + "' target='_blank'>Click Here For the Full Recipe </a>");
     var nutrientTable = document.createElement("table");
     nutrientTable.id = "nutrientTable";
     $("#nutInfo").append(nutrientTable);
     for (var i = 0; i < response.nutrition.nutrients.length; i++) {
       $("#nutrientTable").append("<tr><th>" + response.nutrition.nutrients[i].title + "</th><td>" + response.nutrition.nutrients[i].amount + "</td><td>" + response.nutrition.nutrients[i].percentOfDailyNeeds + "%</td></tr>");
     }
-  });
-  $.ajax(settings).done(function (response) {
-    $("#prettyPic").append("<img src ='" + response.image + "'>");
-
-  });
-  $.ajax(settings).done(function (response) {
-    var button = document.createElement("button");
-    button.id = "recipeButt2";
-    $("#recipeButt").append(button);
-    $("#recipeButt2").append("<a href ='" + response.sourceUrl + "' target='_blank'>VIEW THE RECIPE HERE!</a>");
   });
 })
 
